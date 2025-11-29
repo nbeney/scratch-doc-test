@@ -31,6 +31,10 @@
             color: #666;
             margin-top: 0;
         }
+        code {
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -43,19 +47,23 @@
 
     <div class="block-container">
         <h2>Block Example:</h2>
-        <pre class="blocks">when green flag clicked
+        <pre class="blocks">
+when green flag clicked
 say [Hello, World!] for (2) secs
-repeat (10)
+repeat ((10) + (count) :: operators)
   move (10) steps
   turn cw (15) degrees
-end</pre>
+  move (10) steps
+  turn ccw (15) degrees
+end
+</pre>
     </div>
 
     <div class="block-container">
         <h2>Inline Example:</h2>
         <p>
             You can also use inline blocks like 
-            <code class="b">move (10) steps</code> 
+            <code>move (10) steps</code> 
             within regular text!
         </p>
     </div>
@@ -63,8 +71,13 @@ end</pre>
     <script src="https://cdn.jsdelivr.net/npm/scratchblocks@3.6.4/build/scratchblocks.min.js"></script>
     <script>
         // Render blocks after script loads
-        scratchblocks.renderMatching('pre.blocks, code.b', {
-            style: 'scratch3'
+        scratchblocks.renderMatching('pre.blocks', {
+            style: 'scratch3',
+            scale: 0.7
+        });
+        scratchblocks.renderMatching('code', {
+            style: 'scratch3',
+            scale: 0.5
         });
     </script>
 </body>
